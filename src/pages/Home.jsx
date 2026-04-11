@@ -17,9 +17,9 @@ function Home() {
       {/* <Products />
       <Stats />
       <Gallery /> */}
-      <Testimonials />
+      {/* <Testimonials />
       <Contact />
-      <Footer />
+      <Footer /> */}
     </>
   )
 }
