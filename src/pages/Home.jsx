@@ -11,15 +11,15 @@ import Footer from "../components/Footer"
 function Home() {
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <Hero /> */}
-      {/* <About /> */}
-      {/* <Products />
+      <Navbar />
+      <Hero />
+      <About />
+      <Products />
       <Stats />
-      <Gallery /> */}
-      {/* <Testimonials />
+      <Gallery />
+      <Testimonials />
       <Contact />
-      <Footer /> */}
+      <Footer />
     </>
   )
 }

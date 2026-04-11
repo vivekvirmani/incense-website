@@ -15,9 +15,9 @@ function Hero() {
     <section
       className="relative text-white py-32 px-6 text-center bg-cover bg-center"
       style={{
-        backgroundImage: data?.image
-          ? `url(${urlFor(data.image).url()})`
-          : "none",
+       backgroundImage: data?.image?.asset
+  ? `url(${urlFor(data.image).url()})`
+  : "none",
       }}
     >
       {/* Overlay */}

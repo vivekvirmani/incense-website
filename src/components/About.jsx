@@ -15,7 +15,7 @@ function About() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
 
         {/* Image */}
-        {data?.image && (
+        {data?.image?.asset &&(
           <img
             src={urlFor(data.image).width(600).url()}
             alt="about"
