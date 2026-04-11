@@ -22,14 +22,18 @@ function Gallery() {
         <div className="grid md:grid-cols-4 gap-4">
 
           {data?.images?.map((img, index) => (
-            <motion.img
-              key={index}
-              src={urlFor(img).width(400).height(300).url()}
-              alt="gallery"
-              whileHover={{ scale: 1.1 }}
-              className="rounded-lg object-cover h-60 w-full"
-            />
-          ))}
+  <motion.img
+    key={index}
+    src={
+      img?.asset
+        ? urlFor(img).width(400).height(300).url()
+        : "https://via.placeholder.com/400x300?text=No+Image"
+    }
+    alt="gallery"
+    whileHover={{ scale: 1.1 }}
+    className="rounded-lg object-cover h-60 w-full"
+  />
+))}
 
         </div>
 
