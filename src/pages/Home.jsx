@@ -12,7 +12,7 @@ function Home() {
   return (
     <>
       <Navbar />
-      <Hero />
+      {/* <Hero /> */}
       {/* <About /> */}
       {/* <Products />
       <Stats />
