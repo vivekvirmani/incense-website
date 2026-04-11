@@ -14,9 +14,9 @@ function Home() {
       <Navbar />
       <Hero />
       <About />
-      <Products />
+      {/* <Products />
       <Stats />
-      <Gallery />
+      <Gallery /> */}
       <Testimonials />
       <Contact />
       <Footer />
