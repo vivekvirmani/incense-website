@@ -14,7 +14,6 @@ function Home() {
       <Navbar />
       <Hero />
       <About />
-      <Products />
       <Stats />
       <Gallery />
       <Testimonials />
