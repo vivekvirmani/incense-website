@@ -45,14 +45,25 @@ function Navbar() {
           ☰
         </div>
       </div>
+     
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-black text-white px-6 py-4 space-y-4">
-          <p className="hover:text-yellow-400 cursor-pointer">Home</p>
-          <p className="hover:text-yellow-400 cursor-pointer">About</p>
-          <p className="hover:text-yellow-400 cursor-pointer">Products</p>
-          <p className="hover:text-yellow-400 cursor-pointer">Contact</p>
+        <div className="md:hidden bg-black text-white px-6 py-4 space-y-4 flex justify-between">
+         <div className="flex flex-col gap-2">
+           <Link to="/"> <p className="hover:text-yellow-400 cursor-pointer">Home</p></Link>
+          <Link to="/about" className="hover:text-yellow-400 cursor-pointer">About</Link>
+          <Link to="/products" className="hover:text-yellow-400 cursor-pointer">Products</Link>
+          <Link to="/contact" className="hover:text-yellow-400 cursor-pointer">Contact</Link>
+         </div>
+
+         <div
+          className="md:hidden text-white text-2xl cursor-pointer pr-4"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? "✕" : "☰"}
+        </div>
+          
         </div>
       )}
     </nav>
