@@ -10,17 +10,41 @@ function Testimonials() {
   })
 
   const [index, setIndex] = useState(0)
+  const [direction, setDirection] = useState(1)
+  const [isPaused, setIsPaused] = useState(false)
 
   // Auto slide
   useEffect(() => {
-    if (!data || data.length === 0) return
+    if (!data || data.length === 0 || isPaused) return
 
     const interval = setInterval(() => {
+      setDirection(1)
       setIndex((prev) => (prev + 1) % data.length)
     }, 3000)
 
     return () => clearInterval(interval)
-  }, [data])
+  }, [data, isPaused])
+
+  // Pause auto-slide for 10 sec
+  const pauseAutoSlide = () => {
+    setIsPaused(true)
+
+    setTimeout(() => {
+      setIsPaused(false)
+    }, 10000)
+  }
+
+  const nextSlide = () => {
+    setDirection(1)
+    setIndex((prev) => (prev + 1) % data.length)
+    pauseAutoSlide()
+  }
+
+  const prevSlide = () => {
+    setDirection(-1)
+    setIndex((prev) => (prev - 1 + data.length) % data.length)
+    pauseAutoSlide()
+  }
 
   // Loading state
   if (isLoading) return <p className="text-center">Loading...</p>
@@ -28,14 +52,6 @@ function Testimonials() {
   // Safety check
   if (!data || data.length === 0) {
     return <p className="text-center">No testimonials available</p>
-  }
-
-  const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % data.length)
-  }
-
-  const prevSlide = () => {
-    setIndex((prev) => (prev - 1 + data.length) % data.length)
   }
 
   return (
@@ -49,9 +65,9 @@ function Testimonials() {
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: direction === 1 ? 100 : -100 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
+            exit={{ opacity: 0, x: direction === 1 ? -100 : 100 }}
             transition={{ duration: 0.5 }}
             className="bg-white p-8 rounded-2xl shadow-md"
           >

@@ -18,7 +18,6 @@ function Home() {
       <Stats />
       <Gallery />
       <Testimonials />
-      <Contact />
       <Footer />
     </>
   )
